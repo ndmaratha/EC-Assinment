@@ -1,9 +1,9 @@
 import UserProfile from "./UserProfile";
 import ProductsPage from "./ProductsPage";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Dashboard = () => {
+const Dashboard: React.FC = () => {
 	const navigate = useNavigate();
 	const token = localStorage.getItem("authToken");
 	useEffect(() => {

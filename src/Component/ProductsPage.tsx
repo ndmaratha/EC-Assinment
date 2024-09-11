@@ -1,4 +1,3 @@
-// src/pages/ProductsPage.tsx
 import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 
@@ -23,14 +22,14 @@ const ProductsPage: React.FC = () => {
 		const fetchProducts = async () => {
 			setLoading(true);
 			setError(null);
-			const token = localStorage.getItem("authToken"); // Ensure 'authToken' is the correct key
+			const token = localStorage.getItem("authToken");
 			try {
 				const response = await fetch(
 					"https://intern-task-api.bravo68web.workers.dev/api/products",
 					{
 						method: "GET",
 						headers: {
-							Authorization: `Bearer ${token}`, // Replace with your actual token
+							Authorization: `Bearer ${token}`,
 						},
 					}
 				);
@@ -63,7 +62,7 @@ const ProductsPage: React.FC = () => {
 
 	const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setSearchQuery(event.target.value);
-		setCurrentPage(1); // Reset to first page when searching
+		setCurrentPage(1);
 	};
 
 	const filteredProducts = products.filter((product) =>

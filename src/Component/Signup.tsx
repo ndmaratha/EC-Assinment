@@ -66,7 +66,6 @@ const Signup: React.FC = () => {
 				<h2 className="text-2xl font-bold text-center mb-6 ml-5">Sign Up</h2>
 
 				<form onSubmit={handleSubmit} className="space-y-4">
-					{/* Email Input */}
 					<div>
 						<label
 							htmlFor="email"
@@ -85,7 +84,6 @@ const Signup: React.FC = () => {
 						/>
 					</div>
 
-					{/* Password Input */}
 					<div>
 						<label
 							htmlFor="password"
@@ -104,7 +102,6 @@ const Signup: React.FC = () => {
 						/>
 					</div>
 
-					{/* Submit Button */}
 					<div>
 						<button
 							type="submit"
@@ -115,12 +112,10 @@ const Signup: React.FC = () => {
 						</button>
 					</div>
 
-					{/* Success/Error Message */}
 					{error && <p className="text-red-500 text-sm mt-2">{error}</p>}
 					{success && <p className="text-green-500 text-sm mt-2">{success}</p>}
 				</form>
 
-				{/* Already have an account? */}
 				<div className="text-center mt-4">
 					<p className="text-gray-600">
 						Already have an account?{" "}

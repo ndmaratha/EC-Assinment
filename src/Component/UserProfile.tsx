@@ -15,42 +15,40 @@ const Navbar: React.FC = () => {
 		navigate("/signup");
 		localStorage.setItem("authToken", "");
 	};
-	useEffect(() => {
-		const fetchUserData = async () => {
-			const token = localStorage.getItem("authToken"); // Retrieve the token from storage
-			if (!token) {
-				setError("No token found, please log in.");
-				setLoading(false);
-				return;
-			}
+	const fetchUserData = async () => {
+		const token = localStorage.getItem("authToken");
+		if (!token) {
+			setError("No token found, please log in.");
+			setLoading(false);
+			return;
+		}
 
-			try {
-				const response = await fetch(
-					"https://intern-task-api.bravo68web.workers.dev/api/me",
-					{
-						method: "GET",
-						headers: {
-							Authorization: `Bearer ${token}`, // Attach the token in the Authorization header
-						},
-					}
-				);
-
-				const result = await response.json();
-
-				if (response.ok) {
-					// Extract the user's email from the response
-					const email = result.user.sub;
-					setUser({ email });
-				} else {
-					setError(result.message || "Failed to fetch user data.");
+		try {
+			const response = await fetch(
+				"https://intern-task-api.bravo68web.workers.dev/api/me",
+				{
+					method: "GET",
+					headers: {
+						Authorization: `Bearer ${token}`,
+					},
 				}
-			} catch (err) {
-				setError("An error occurred while fetching user data.");
-			} finally {
-				setLoading(false);
-			}
-		};
+			);
 
+			const result = await response.json();
+
+			if (response.ok) {
+				const email = result.user.sub;
+				setUser({ email });
+			} else {
+				setError(result.message || "Failed to fetch user data.");
+			}
+		} catch (err) {
+			setError("An error occurred while fetching user data.");
+		} finally {
+			setLoading(false);
+		}
+	};
+	useEffect(() => {
 		fetchUserData();
 	}, []);
 

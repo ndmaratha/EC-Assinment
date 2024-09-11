@@ -48,12 +48,11 @@ const Login: React.FC = () => {
 			const result = await response.json();
 
 			if (response.ok && result.token) {
-				// Save the token in localStorage or sessionStorage
 				localStorage.setItem("authToken", result.token);
 
 				setSuccess("Login successful.");
 				navigate("/");
-				console.log("Token:", result.token); // For debugging
+				console.log("Token:", result.token);
 			} else {
 				setError(result.message || "Invalid email or password.");
 			}
@@ -70,7 +69,6 @@ const Login: React.FC = () => {
 				<h2 className="text-2xl font-bold text-center mb-6">Log In</h2>
 
 				<form onSubmit={handleSubmit} className="space-y-4">
-					{/* Email Input */}
 					<div>
 						<label
 							htmlFor="email"
@@ -89,7 +87,6 @@ const Login: React.FC = () => {
 						/>
 					</div>
 
-					{/* Password Input */}
 					<div>
 						<label
 							htmlFor="password"
@@ -108,7 +105,6 @@ const Login: React.FC = () => {
 						/>
 					</div>
 
-					{/* Submit Button */}
 					<div>
 						<button
 							type="submit"
@@ -119,11 +115,10 @@ const Login: React.FC = () => {
 						</button>
 					</div>
 
-					{/* Success/Error Message */}
 					{error && <p className="text-red-500 text-sm mt-2">{error}</p>}
 					{success && <p className="text-green-500 text-sm mt-2">{success}</p>}
 				</form>
-				{/* Already have an account? */}
+
 				<div className="text-center mt-4">
 					<p className="text-gray-600">
 						Dont have an account?{" "}
