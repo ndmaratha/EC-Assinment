@@ -34,9 +34,9 @@ To run the app locally:
 npm run dev
 \`\`\`
 
-This will start the development server, and the app will be available at \`http://localhost:3000`.
+This will start the development server, and the app will be available at \`http://localhost:3000 \`.
 
-Deployment Link \`https://main--engineerscradleassesment.netlify.app/`.
+Deployment Link \` https://main--engineerscradleassesment.netlify.app \`.
 
 ## API Integration
 
