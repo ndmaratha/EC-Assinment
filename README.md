@@ -13,7 +13,7 @@ This project is a product listing application built using **React**, **TypeScrip
 
 1. Clone the repository:
    \`\`\`bash
-   git clone https://github.com/yourusername/product-listing-app.git
+   git clone https://github.com/ndmaratha/EC-Assinment
    \`\`\`
 
 2. Navigate to the project directory:
